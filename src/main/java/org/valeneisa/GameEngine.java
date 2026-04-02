@@ -44,7 +44,7 @@ public class GameEngine implements INetworkObserver {
     }
 
     /**
-     * Aquí llegan todos los mensajes desde los dispositivos.
+     * Aquí llegan todos los mensajes desde los celulares.
      * Formato: "COMANDO:usuario:datos"
      * Ejemplo: "MOV:Valentina:100,250"
      */
