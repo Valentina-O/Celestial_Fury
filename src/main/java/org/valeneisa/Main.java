@@ -1,17 +1,27 @@
 package org.valeneisa;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/**
+ * La clase principal que sirve como punto de entrada para la aplicación Celestial Fury.
+ * Proporciona un ejemplo básico de salida por consola y una estructura de control de ciclo.
+ * * @author Valentina-O
+ * @version 2.0
+ */
 public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+
+    /**
+     * Método principal que inicia la ejecución de la aplicación.
+     * Imprime un mensaje de bienvenida y una secuencia de números en la consola.
+     * * @param args Argumentos de la línea de comandos (no utilizados en esta implementación).
+     */
+    public static void main(String[] args) {
+        // Usamos System.out para corregir el error de "IO"
+        System.out.println(String.format("Hello and welcome!"));
 
         for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+            /*
+             * Imprime el valor actual del contador en cada iteración.
+             */
+            System.out.println("i = " + i);
         }
     }
 }

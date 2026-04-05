@@ -1,0 +1,504 @@
+/**
+ * @fileoverview Estilos Generales - Celestial Fury
+ * Paleta de colores basada en "Las Chicas Superpoderosas"
+ * Sigue principios de diseño responsive y accesibilidad
+ * @author Celestial Fury Team
+ */
+/* Importación de fuentes temáticas */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600&display=swap');
+/* ===================================
+   VARIABLES DE COLOR (Chicas Superpoderosas)
+   =================================== */
+:root {
+    --color-bombon: #FFB6E1;      /* Rosa claro */
+    --color-burbuja: #ADD8E6;     /* Azul claro */
+    --color-bellota: #90EE90;     /* Verde claro */
+    --color-brisa: #DDA0DD;       /* Lila claro */
+
+    --font-titles: 'Luckiest Guy', cursive;
+    --font-body: 'Fredoka', sans-serif;
+
+    --text-dark: #333;
+    --border-radius: 25px;
+    --bg-dark: #1a1a2e;
+    --bg-light: #f5f5f5;
+    --text-dark: #333;
+    --text-light: #fff;
+    --border-radius: 20px;
+}
+
+/* ===================================
+   RESET Y ESTILOS BASE
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+     /* Degradado de rosado claro a oscuro solicitado */
+     background: linear-gradient(180deg, #FFC0CB 0%, #FF69B4 50%, #D5006D 100%);
+     min-height: 100vh;
+     color: var(--text-dark);
+}
+
+/* ===================================
+   PÁGINA DE SELECCIÓN DE PERSONAJES
+   =================================== */
+.character-selection-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.title {
+    font-family: var(--font-titles);
+    font-size: 4rem;
+    color: white;
+    text-shadow: 4px 4px 0px #000;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-align: center;
+    color: white;
+    opacity: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ===================================
+   GRID DE PERSONAJES
+   =================================== */
+.character-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.character-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    cursor: pointer;
+transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 4px solid #000;
+    position: relative;
+    overflow: visible; /* Para que el indicador sobresalga */
+}
+
+.character-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.15);
+}
+
+/* SELECCIÓN ARMÓNICA */
+
+.character-card.selected {
+    border-color: var(--color-accent);
+    background: #FFF0F5;
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.4), 6px 6px 0px var(--color-accent);
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.character-card.unavailable {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.character-visual {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.character-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.character-name {
+    font-family: var(--font-titles);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.character-desc {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1rem;
+    color: #666;
+}
+
+.selection-indicator {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 38px;
+    height: 38px;
+    background: #FF1493;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    z-index: 11;
+}
+
+.character-card.selected .selection-indicator {
+    display: flex;
+}
+
+.character-card.selected .selection-indicator::after {
+    content: '❤';
+    font-size: 1.2rem;
+}
+.character-card.selected .selection-indicator {
+    display: flex;
+}
+
+/* ===================================
+   PANEL DE RESUMEN
+   =================================== */
+.summary-panel {
+    background: white;
+    border: 4px solid #000;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+}
+
+.summary-panel h2 {
+    font-family: var(--font-titles);
+    font-size: 2.2rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+}
+
+.selected-count {
+    font-family: var(--font-titles);
+    font-size: 2.5rem;
+    color: var(--text-dark);
+}
+
+.selected-list {
+    margin-bottom: 20px;
+}
+
+.selected-item {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.start-button {
+    font-family: var(--font-titles);
+    font-size: 2.5rem;
+    color: var(--text-dark);
+}
+
+.start-button:hover:not(:disabled) {
+    background: #7FFF00; /* Verde Bellota */
+    transform: scale(1.05);
+}
+
+.start-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===================================
+   PÁGINA DE JUEGO - BATALLA
+   =================================== */
+.game-page {
+    overflow: hidden;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: 60vh;
+}
+
+.player-section {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.player-1 {
+    border-left: 5px solid var(--color-bombon);
+}
+
+.player-2 {
+    border-right: 5px solid var(--color-brisa);
+}
+
+.player-title, .arena-title, .modal-content h2 {
+    font-family: var(--font-titles);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.characters-display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.character-card {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.health-bar {
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 30px;
+    position: relative;
+}
+
+.health-fill {
+    background: linear-gradient(90deg, #4caf50, #8bc34a);
+    height: 100%;
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.health-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 0.8rem;
+}
+
+/* ===================================
+   ARENA DE BATALLA
+   =================================== */
+.battle-arena {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.arena-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.battle-status {
+    font-size: 1.2rem;
+    text-align: center;
+    animation: pulse 1.5s infinite;
+}
+
+.battle-effects {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ===================================
+   CONTROLES VIRTUALES - FLORES
+   =================================== */
+.controls-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.flower-controller {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flower-button {
+    font-family: var(--font-titles);
+    background: linear-gradient(135deg, var(--color-bombon), var(--color-burbuja));
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.flower-button:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.flower-button:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.flower-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.flower-button.punch-active {
+    animation: flowerPunch 0.6s ease;
+}
+
+@keyframes flowerPunch {
+    0% { transform: scale(1) translateX(0); }
+    50% { transform: scale(1.2) translateX(20px); }
+    100% { transform: scale(1) translateX(0); }
+}
+
+/* ===================================
+   MODAL - FIN DE JUEGO
+   =================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.modal-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+    transform: scale(1.05);
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+@media (max-width: 768px) {
+    .title {
+       font-size: 2.5rem
+    }
+
+    .character-selection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .game-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .flower-controller {
+        gap: 10px;
+    }
+
+    .flower-button {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-selection {
+        grid-template-columns: 1fr;
+    }
+
+    .flower-button {
+        width: 70px;
+        height: 70px;
+        font-size: 1.2rem;
+    }
+}
